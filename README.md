@@ -9,10 +9,9 @@ The website is containerized using Docker Compose for easy deployment and scalin
 Build and start the Docker containers using Docker Compose:
 
 ```bash
-docker built -t web .
-docker run -p 8080:8080 -t web
+docker compose up
 ```
 
-This command will build the Docker image for your website and start the container in detached mode.
+This command will build the Docker image for your website and start the container.
 
 You can now access your portfolio website by navigating to `http://localhost:8080` in your web browser.

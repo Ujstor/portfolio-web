@@ -7,8 +7,8 @@ import (
 
 func main() {
 	// Handle requests for static assets (CSS, fonts, images, and JavaScript)
-	fs := http.FileServer(http.Dir("assets"))
-	http.Handle("/assets/", http.StripPrefix("/assets/", fs))
+	fs := http.FileServer(http.Dir("web"))
+	http.Handle("/web/", http.StripPrefix("/web/", fs))
 
 	// Handle requests for the root path ("/")
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
