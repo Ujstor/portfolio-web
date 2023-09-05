@@ -19,6 +19,6 @@ if (dnt != "1" && dnt != "yes") {
         "https://www.google-analytics.com/analytics.js",
         "ga"
     );
-    ga("create", "G-XY5R28CMBG", "auto");
+    ga("create", "", "auto");
     ga("send", "pageview");
 }
