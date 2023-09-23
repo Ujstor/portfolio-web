@@ -2,36 +2,41 @@
 
 This repository contains the code and instructions for creating a portfolio website using Flask and Docker. With this setup, you can easily run your portfolio website in a Docker container, making it easy to deploy and manage.
 
-## Getting Started
+![](https://i.imgur.com/f9HgZ9F.png)
 
-Build the Docker image:
+# Getting Started
 
-   ```bash
-   docker compose up -d
-   ```
+1. Clone git repo
 
-This command will also start the Flask application inside a Docker container and expose it on port 5000.
+2. Create and add credentials in `.env` file
+    ```
+    KEY=            #random string
+    ```
+3. Run `python main.py`
 
-## Configuration
+4. Open `127.0.0.1:5000` in local browser
 
-Environment variables in .env: `KEY`: Replace this with your secret key for the website
+# Docker
 
- 
-
-
-You can access your portfolio website by opening a web browser and navigating to:
+To build the Docker image from the code, run:
 
 ```
-http://localhost:5000
+docker compose -f .\docker-compose-dev.yml up
 ```
 
-## Stopping the Container
+If you want to pull the image from the Docker repository instead, use:
 
-To stop the Docker container, you can use the following command:
-
-```bash
-docker stop <container_id> or docker compose down
+```
+docker compose -f .\docker-compose-prod.yml up
 ```
 
-Replace `<container_id>` with the ID of the running container, which you can find using `docker ps`.
+Image is automatically built and deployed through the Jenkins pipeline after changes in GitHub, and it expects a .env file for loading variables.
+
+<br/>
+
+![]()
+
+<br/>
+
+![]()
 
