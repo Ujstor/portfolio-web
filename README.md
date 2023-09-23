@@ -9,9 +9,9 @@ This repository contains the code and instructions for creating a portfolio webs
 1. Clone git repo
 
 2. Create and add credentials in `.env` file
-    ```
-    KEY=            #random string
-    ```
+```
+KEY=            #random string
+```
 3. Run `python main.py`
 
 4. Open `127.0.0.1:5000` in local browser
@@ -30,13 +30,25 @@ If you want to pull the image from the Docker repository instead, use:
 docker compose -f .\docker-compose-prod.yml up
 ```
 
-Image is automatically built and deployed through the Jenkins pipeline after changes in GitHub, and it expects a .env file for loading variables.
+Image is automatically built and deployed through the Jenkins pipeline after changes in GitHub.
 
 <br/>
 
-![]()
+![](https://i.imgur.com/4wmQpYy.png)
 
 <br/>
 
-![]()
+# Testing
 
+In simple terms, test code checks if a website works correctly. It does this by:
+
+
+1. **Testing the Home Page**: It makes sure the main page of the website looks right.
+
+2. **Testing External Links**: It checks if links to other websites are working.
+
+3. **Checking Links on the Page**: It looks at all the links on the website to make sure they point to the right places.
+
+After these tests pass successfully, a Docker image is created and the website is deployed through a Jenkins pipeline.
+
+![](https://i.imgur.com/Phi3UVh.png)

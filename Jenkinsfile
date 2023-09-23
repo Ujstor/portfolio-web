@@ -4,11 +4,9 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                script {
-                    checkout([$class: 'GitSCM', branches: [[name: '*/flask_server']], userRemoteConfigs: [[url: 'https://github.com/Ujstor/portfolio_web/']]])
-                }
-            }
+              git(url: 'https://github.com/Ujstor/portfolio_web/', branch: 'flask_server')
         }
+      }
 
         stage('Build') {
             steps {
