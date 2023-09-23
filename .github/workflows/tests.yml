@@ -26,5 +26,15 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
 
+    - name: Start Flask App
+      run: gunicorn  main:app --bind=0.0.0.0:5000
+      background: true
+
+    - name: Wait for Flask App to Start
+      run: sleep 10
+
+    - name: Check Flask App Status
+      run: curl http://localhost:5000
+
     - name: test with pytest
       run: pytest
