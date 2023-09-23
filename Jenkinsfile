@@ -1,51 +1,29 @@
 pipeline {
-  agent any
+    agent any
 
-  stages {
-    stage('Checkout Code') {
-      steps {
-        git(url: 'https://github.com/Ujstor/portfolio_web/', branch: 'jenkins')
-      }
-    }
-
-    stage('Prepair enviroment') {
-      steps {
-        script {
-          sh "cp -f /home/portfolio/.env ${WORKSPACE}"
-        }
-      }
-    }
-
-    stage('Start Flask App') {
+    stages {
+        stage('Checkout Code') {
             steps {
                 script {
-                    sh 'gunicorn main:app --bind=0.0.0.0:5000 &'
+                    checkout([$class: 'GitSCM', branches: [[name: '*/flask_server']], userRemoteConfigs: [[url: 'https://github.com/Ujstor/portfolio_web/']]])
                 }
             }
         }
 
-    stage('Test') {
-      steps {
-        script {
-          sh "${JENKINS_HOME}/scripts/pytest.sh ${WORKSPACE}"
+        stage('Build') {
+            steps {
+                script {
+                    sh 'docker build -t ujstor/portfolio_web .'
+                }
+            }
         }
-      }
-    }
 
-    stage('Build') {
-      steps {
-        script {
-          sh 'docker build -t ujstor/portfolio_web .'
+        stage('Push') {
+            steps {
+                script {
+                    sh 'docker push ujstor/portfolio_web'
+                }
+            }
         }
-      }
     }
-
-    stage('Deploy') {
-      steps {
-        script {
-          sh 'docker push ujstor/portfolio_web'
-        }
-      }
-    }
-  }
 }
