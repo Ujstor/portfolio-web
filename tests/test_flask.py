@@ -1,4 +1,5 @@
 import requests
+from selenium.webdriver.common.by import By
 
 links = ['https://github.com/Ujstor', 'https://github.com/Ujstor/Data-Science-Introduction',
         'https://probit.astipan.com/', 'https://github.com/Ujstor/probit-exchange-api',
