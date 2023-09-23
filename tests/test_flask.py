@@ -24,7 +24,7 @@ def test_links():
 def test_check_links_present(client, driver):
     driver.get('http://localhost:5000')
 
-    page_links = driver.find_elements_by_css_selector('a')
+    page_links = driver.find_elements(By.CSS_SELECTOR, 'a')
     page_links_hrefs = [link.get_attribute('href') for link in page_links]
     for link in links:
         assert link in page_links_hrefs
