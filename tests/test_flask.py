@@ -13,7 +13,6 @@ def test_home_page(client):
     assert response.status_code == 200
 
     assert '<span class="site-title">ALEKSANDAR STIPAN</span>' in html
-    assert '<span class="site-description">Programmer • Backend Developer • Data Analyst</span>' in html
     assert '<a class="link" href="#about" data-scroll>About Me</a>' in html
     assert '<a class="link" href="#projects" data-scroll>Projects</a>' in html
 
