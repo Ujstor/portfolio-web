@@ -16,6 +16,14 @@ pipeline {
       }
     }
 
+    stage('Start Flask App') {
+            steps {
+                script {
+                    sh 'gunicorn main:app --bind=0.0.0.0:5000 &'
+                }
+            }
+        }
+
     stage('Test') {
       steps {
         script {
