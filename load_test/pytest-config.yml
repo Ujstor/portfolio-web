@@ -1,0 +1,5 @@
+execution:
+- executor: pytest
+  iterations: 3
+  scenario:
+    script: tests/test_flask.py

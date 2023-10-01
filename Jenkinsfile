@@ -4,9 +4,9 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-              git(url: 'https://github.com/Ujstor/portfolio_web/', branch: 'flask_server')
+                git(url: 'https://github.com/Ujstor/portfolio_web/', branch: 'flask_server')
+            }
         }
-      }
 
         stage('Build') {
             steps {
