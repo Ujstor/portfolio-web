@@ -34,7 +34,7 @@ Image is automatically built and deployed through the Jenkins pipeline after cha
 
 <br/>
 
-![](https://i.imgur.com/4wmQpYy.png)
+![](https://i.imgur.com/maTJ3oR.png)
 
 <br/>
 
