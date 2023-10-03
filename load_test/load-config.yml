@@ -1,0 +1,12 @@
+execution:
+- concurrency: 100
+  hold-for: 5m
+  ramp-up: 1m
+  scenario: simple_scenario
+
+scenarios:
+  simple_scenario:
+    requests:
+    - url: https://astipan.com
+      method: GET
+

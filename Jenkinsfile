@@ -5,7 +5,10 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git(url: 'https://github.com/Ujstor/portfolio_web/', branch: 'flask_server')
-            }
+                  }
+
+              }
+
         }
 
         stage('Create flask test app') {
@@ -39,6 +42,7 @@ pipeline {
                 }
             }
         }
+
 
 
         stage('Build') {
