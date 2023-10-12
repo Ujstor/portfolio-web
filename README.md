@@ -34,7 +34,45 @@ Image is automatically built and deployed through the Jenkins pipeline after cha
 
 <br/>
 
-![](https://i.imgur.com/maTJ3oR.png)
+![](https://i.imgur.com/ce4bRbc.png)
+
+# Jenkins Pipeline
+
+This Jenkins Pipeline is designed to automate the process of building, testing and deploying a Flask web application using Docker. It is configured to perform these tasks when certain conditions are met, such as a specific branch name.
+
+## Pipeline Overview
+This pipeline consists of multiple stages:
+
+1. **Checkout Code**: This stage checks out the source code from the specified GitHub repository based on the branch name.
+
+2. **Create flask test app**: It creates and starts a Docker container running a Flask test application using a `docker-compose` file (`docker-compose-dev.yml`).
+
+3. **Check flask app**: This stage waits for 10 seconds and then makes an HTTP request to the locally running Flask application to ensure it's working.
+
+4. **Test**: This stage runs tests for the application using a custom script named `pytest.sh`.
+
+5. **Clean env**: After testing, it stops and removes the Docker containers created in the 'Create flask test app' stage.
+
+6. **Generate Docker Image Tag**: This stage generates a Docker image tag if the branch name is 'flask_server'. The version part (Patch, Minor, Major) is used to determine the version of the image tag.
+
+7. **Build**: If the branch name is 'flask_server', this stage builds a Docker image with the generated tag.
+
+8. **Deploy**: It pushes the built Docker image to a Docker Hub repository.
+
+9. **Environment Cleanup**: This stage removes the local Docker image to keep the environment clean.
+
+## Conditional Execution
+The stages from 'Generate Docker Image Tag' to 'Environment Cleanup' will only execute when the branch name is 'flask_server'.
+
+## Environment Variables
+- `DOCKER_HUB_USERNAME`: Your Docker Hub username.
+- `DOCKER_REPO_NAME`: The name of your Docker repository.
+- `VERSION_PART`: The version part used for tagging the Docker image (e.g., Patch, Minor, Major).
+
+## Post-Build Actions
+After successful completion of the pipeline, it will echo "Pipeline completed successfully" as a success message.
+
+This pipeline can be customized and extended to fit your specific requirements. Make sure to configure Jenkins with the required credentials, environment variables, [scripts](https://github.com/Ujstor/k8s-infra/tree/master/jenkins/scripts) and adapt it to your project's structure and needs.
 
 <br/>
 
