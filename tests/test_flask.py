@@ -21,7 +21,6 @@ def test_links():
         response = requests.get(link)
         assert response.status_code == 200, f"Link {link} returned status code {response.status_code}"
 
-@pytest.mark.skip(reason="Skipping this test")
 def test_check_links_present(client, driver):
     driver.get('http://localhost:5000')
 
