@@ -1,9 +1,9 @@
-version: '3'
+version: "3"
 
 services:
   web:
-    image: ujstor/portfolio_web:1.0.1
+    image: ujstor/portfolio_web:1.0.2
     ports:
-      - '5000:5000'
+      - "5000:5000"
     environment:
       - KEY=${KEY}
