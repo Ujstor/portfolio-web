@@ -3,9 +3,9 @@ pipeline {
 
     environment {
         GITHUB_USER = 'ujstor'
-        GITHUB_REPO = 'portfolio_web '
+        GITHUB_REPO = 'portfolio_web'
         DOCKER_HUB_USERNAME = 'ujstor'
-        DOCKER_REPO_NAME = 'portfolio-web-go '
+        DOCKER_REPO_NAME = 'portfolio-web-go'
         BRANCH = 'master'
         VERSION_PART = 'Patch' // Patch, Minor, Major
         DOCKER_JENKINS_CERDIDENTALS_ID = 'be9636c4-b828-41af-ad0b-46d4182dfb06'

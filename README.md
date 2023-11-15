@@ -19,8 +19,8 @@ You can now access your portfolio website by navigating to `http://localhost:500
 ## Jenkins Pipeline
 
 The pipeline is designed to automate the processes of testing, building, and deploying a web application using Docker.
-It creates an image and pushes it to DockerHub. Leadership on this project simplifies deployment with Docker Compose. Additionally,
-the pipeline is configured to perform these tasks when certain conditions are met, such as when a specific branch name is used
+It creates an image and pushes it to DockerHub. This simplifies deployment with Docker Compose. Additionally,
+the pipeline is configured to perform these tasks when certain conditions are met, such as specific branch.
 
 ## Deployment
 Application deployment can be achieved through the utilization of either a `Go` or `Flask` server, orchestrated using docker-compose,
