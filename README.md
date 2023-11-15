@@ -6,20 +6,75 @@ The website is containerized using Docker Compose for easy deployment and scalin
 
 ## Docker Compose
 
-Build and start the Docker containers using Docker Compose:
+Pull image from DockerHub and start the Docker containers using Docker Compose:
 
 ```bash
-docker compose up
+docker compose up -d
 ```
 
 This command will build the Docker image for your website and start the container.
 
-You can now access your portfolio website by navigating to `http://localhost:8080` in your web browser.
+You can now access your portfolio website by navigating to `http://localhost:5000` in your web browser.
+
+## Jenkins Pipeline
+
+The pipeline is designed to automate the processes of testing, building, and deploying a web application using Docker.
+It creates an image and pushes it to DockerHub. Leadership on this project simplifies deployment with Docker Compose. Additionally,
+the pipeline is configured to perform these tasks when certain conditions are met, such as when a specific branch name is used
 
 ## Deployment
+Application deployment can be achieved through the utilization of either a `Go` or `Flask` server, orchestrated using docker-compose,
+and hosted on the cloud self-hosting service provided by [Collify](). Please note that the Flask server resides on a distinct branch.
 
-Application deployment can be achieved through the utilization of either a `Go` or `Flask` server, orchestrated using docker-compose, and hosted on the cloud self-hosting service provided by [Collify](). Please note that the Flask server resides on a distinct branch.
+
 <br>
 <br>
 
-![](https://i.imgur.com/f9HgZ9F.png)
+![](https://i.imgur.com/pi1WaHy.png)
+
+## MakeFile
+
+run all make commands with clean tests
+```bash
+make all build
+```
+
+build the application
+```bash
+make build
+```
+
+build docker image
+```bash
+make docker-build
+```
+
+run the application
+```bash
+make run
+```
+
+run docker image application
+```bash
+make docker-run
+```
+
+push image to DockerHub
+```bash
+make push
+```
+
+live reload the application
+```bash
+make watch
+```
+
+run the test suite
+```bash
+make test
+```
+
+clean up binary from the last build
+```bash
+make clean
+```
