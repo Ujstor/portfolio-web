@@ -2,6 +2,6 @@ version: '3'
 
 services:
   web:
-    image: ujstor/portfolio-web-go:1.0.5
+    image: ujstor/portfolio-web-go:1.0.6
     ports:
       - '${PORT}:${PORT}'
