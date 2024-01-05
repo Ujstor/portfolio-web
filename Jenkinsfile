@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         GITHUB_USER = 'ujstor'
-        GITHUB_REPO = 'portfolio_web'
+        GITHUB_REPO = 'portfolio-web'
         DOCKER_HUB_USERNAME = 'ujstor'
         DOCKER_REPO_NAME = 'portfolio-web-go'
         BRANCH = 'master'
