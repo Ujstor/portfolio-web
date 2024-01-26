@@ -1,7 +1,28 @@
 version: '3.8'
 
 services:
-  web:
-    build: .
+  web-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
     ports:
       - ${PORT}:${PORT}
+    environment:
+      - PORT=${PORT}
+    volumes:
+      - ./:/app
+  
+  web-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: prod
+    ports:
+      - ${PORT}:${PORT}
+    environment:
+      - PORT=${PORT}
+
+# docker-compose up --scale web-dev=0 --scale web-prod=1 --build
+# docker-compose up  web-prod --build
+# docker-compose up  web-dev --build

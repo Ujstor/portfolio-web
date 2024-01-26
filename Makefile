@@ -48,4 +48,4 @@ watch:
 	    fi; \
 	fi
 
-.PHONY: all build run test clean
+.PHONY: all build docker-build run docker-run push test clea watch

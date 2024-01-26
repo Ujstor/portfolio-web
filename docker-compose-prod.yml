@@ -2,6 +2,8 @@ version: '3.8'
 
 services:
   web:
-    image: ujstor/portfolio-web-go:1.0.7
+    image: ujstor/portfolio-web-go:1.0.8
     ports:
       - ${PORT}:${PORT}
+    environment:
+      - PORT=${PORT}

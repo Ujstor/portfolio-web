@@ -6,10 +6,10 @@ The website is containerized using Docker Compose for easy deployment and scalin
 
 ## Docker Compose
 
-Pull image from DockerHub and start the Docker containers using Docker Compose:
+Build image and start the Docker containers using Docker Compose:
 
 ```bash
-docker compose up -d
+docker compose up web-prod --build -d
 ```
 
 This command will build the Docker image for your website and start the container.
