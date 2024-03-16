@@ -23,6 +23,5 @@ services:
     environment:
       - PORT=${PORT}
 
-# docker-compose up --scale web-dev=0 --scale web-prod=1 --build
 # docker-compose up  web-prod --build
 # docker-compose up  web-dev --build

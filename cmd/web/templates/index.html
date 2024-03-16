@@ -14,8 +14,8 @@
     <!-- Keyword Metadata -->
     <meta
       name="keywords"
-      content="Aleksandar Stipan, Programmer, Backend Developer,
-      Data Analyst, Python, Go, Data Science, Web Development, Ujstor, Stipan, Aleksandar"
+      content="aleksandar stipan, programmer, coder, backend developer,
+      devops, hetzner, aws, python, go, ujstor, stipan, aleksandar"
     />
     <!-- Webpage Logo -->
     <link rel="shortcut icon" href="./static/img/favicon.ico" />
@@ -62,7 +62,7 @@
         <p>
           As a self-taught programmer, I am focused on backend development, CI/CD pipelines and automation.
           I'm excited to apply my analytical mindset to projects requiring technical expertise and creative problem-solving.
-          Additionally, I remain open to opportunities for growth, collaboration and addressing
+          I remain open to opportunities for growth, collaboration and addressing
           real-world challenges with my skill set.
         </p>
       </div>
@@ -101,17 +101,17 @@
             <img
               height="70"
               width="70"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ansible/ansible-original.svg"
+            />
+            <img
+              height="70"
+              width="70"
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg"
             />
             <img
               height="70"
               width="70"
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
-            />
-            <img
-              height="70"
-              width="70"
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
             />
             <img
               height="70"
@@ -143,7 +143,7 @@
                    srcset="./static/img/webp/blueprint.webp" 
                    sizes="(max-width: 600px) 480px, 800px" 
                    alt="Go-Blueprint" />
-           <img src="./static/img/jpg/blueprint.jpg" 
+           <img src="./static/img/png/blueprint.png" 
                 alt="blueprint" 
                 style="width:auto;max-width:100%;" />
         </picture>
@@ -170,17 +170,110 @@
             drivers along with Docker Compose file for quick database creation, HTMx templates and GitHubAction worflows.
           </p>
           <a class="project-link" target="_blank" href="https://github.com/Melkeydev/go-blueprint">GitHub</a>
+          &nbsp;
+          <a class="project-link" target="_blank" href="https://go-blueprint.net">Docs</a>
         </div>
       </div>
 
-      <!-- User Project #2: Self-Hosting AI Models (Ollama, Stable Diffusion, Foocus) -->
+      <!-- User Project #2: personal-s3-storage-infrastructure  -->
+      <div class="user-projects">
+        <div class="images-left">
+          <picture>
+            <source type="image/webp" 
+                    srcset="./static/img/webp/s3-infra.webp" 
+                    sizes="(max-width: 600px) 480px, 800px" />
+            <img src="./static/img/png/s3-infra.png" 
+                 alt="personal-s3-storage-infrastructure" 
+                 style="width:auto;max-width:100%;" />
+          </picture>
+        </div>
+        <div class="contents-right" style="text-align: center">
+          <h3>Personal S3 Storage Infrastructure</h3>
+          <div>
+            <img
+              height="62"
+              width="62"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg"
+            />
+            &nbsp;
+            <img
+              height="62"
+              width="62"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg"
+            />
+            &nbsp;
+            <img
+              height="115"
+              width="115"
+              src="./static/svg/hetzner.svg"
+            />
+          </div>
+          <p style="text-align: justify">
+          Implementing MinIO, a high-performance object storage system compatible with Amazon S3, using Terraform and Ansible for management.
+          Configured as Multi-Node Multi-Drive (MNMD), this setup ensure robust performance and availability for enterprise applications.
+          It is fortified with configuration to sustain read operations even in the event of half-node or drive failures.
+          </p>
+          <a class="project-link" target="_blank" href="https://github.com/Ujstor/personal-s3-storage-infrastructure">GitHub</a>
+        </div>
+      </div>
+
+      <!-- User Project #3: Deployment cluster with S3 & PostgreSQL -->
+      <div class="user-projects">
+        <div class="images-right">
+          <picture>
+            <source type="image/webp" 
+                    srcset="./static/img/webp/deployment-cluster.webp" 
+                    sizes="(max-width: 600px) 480px, 800px" />
+            <img src="./static/img/png/deployment-cluster.png" 
+                 alt="Deployment cluster with S3 & PostgreSQL" 
+                 style="width:auto;max-width:100%;" />
+          </picture>
+        </div>
+        <div class="contents" style="text-align: center">
+          <h3>Deployment Cluster with S3 & PSQL</h3>
+          <div>
+            <img
+              height="62"
+              width="62"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg"
+            />
+            &nbsp;
+            <img
+              height="62"
+              width="62"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg"
+            />
+            &nbsp;
+            <img
+              height="62"
+              width="62"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+            />
+            &nbsp;
+            <img
+              height="115"
+              width="115"
+              src="./static/svg/hetzner.svg"
+            />
+          </div>
+          <p style="text-align: justify">
+            Application and service hosting infrastructure utilizing Hetzner's VPS and Docker containers, integrated with Coolify
+            for a unified PaaS solution. Benefit from dedicated Postgres DB and S3 storage for robust backup capabilities of your Docker 
+            containerized applications and databases. The infrastructure deployment and management are conducted through Terraform and Ansible,
+            with clustering operated in swarm mode 
+          </p>
+          <a class="project-link" target="_blank" href="https://github.com/Ujstor/deployment-cluster-s3-db">GitHub</a>
+        </div>
+      </div>
+
+      <!-- User Project #4: Self-Hosting AI Models (Ollama, Stable Diffusion, Foocus) -->
       <div class="user-projects">
         <div class="images-left">
           <picture>
             <source type="image/webp" 
                     srcset="./static/img/webp/models.webp" 
                     sizes="(max-width: 600px) 480px, 800px" />
-            <img src="./static/img/jpg/models.jpg" 
+            <img src="./static/img/png/models.png" 
                  alt="Self-Hosting AI Models (Ollama, Stable Diffusion, Foocus)" 
                  style="width:auto;max-width:100%;" />
           </picture>
@@ -210,14 +303,14 @@
         </div>
       </div>
 
-      <!-- User Project #3: Self hosted Coolify -->
+      <!-- User Project #5: Self hosted Coolify -->
       <div class="user-projects">
         <div class="images-right">
           <picture>
             <source type="image/webp" 
                     srcset="./static/img/webp/coolify.webp" 
                     sizes="(max-width: 600px) 480px, 800px" />
-            <img src="./static/img/jpg/coolify.jpg" 
+            <img src="./static/img/png/coolify.png" 
                  alt="Coolify instance on Hetzner" 
                  style="width:auto;max-width:100%;" />
           </picture>
@@ -236,29 +329,27 @@
               width="115"
               src="./static/svg/hetzner.svg"
             />
-            &nbsp;
           </div>
           <p style="text-align: justify">
-            Deploy Coolify on Hetzner Cloud using the Terraform. This project aims to create a highly optimized,
-            auto-upgradable, highly available and cost-effective self hosted Coolify instance for deployng your
-            projects on Hetzner Cloud. Coolify is an all-in one PaaS that helps you to self-host your own applications,
+            Deploy Coolify on Hetzner Cloud using the Terraform. Coolify is an all-in one PaaS that helps you to self-host your own applications,
             databases or services without managing your servers, also known as an open-source & self-hostable
             Heroku / Netlify / Vercel alternative.
           </p>
-          <a class="project-link" target="_blank" href="https://coolify.io/docs/">Check it out!</a>
+          <a class="project-link" target="_blank" href="https://coolify.io/docs/">Docs</a>
           &nbsp;
           <a class="project-link" target="_blank" href="https://github.com/Ujstor/coolify-hetzner-terraform">GitHub</a>
         </div>
       </div>
 
-      <!-- User Project #4: fast API -->
+
+      <!-- User Project #6: Social media Fast API -->
       <div class="user-projects">
         <div class="images-left">
           <picture>
             <source type="image/webp" 
                     srcset="./static/img/webp/fastapi.webp" 
                     sizes="(max-width: 600px) 480px, 800px" />
-            <img src="./static/img/jpg/fastapi.jpg" 
+            <img src="./static/img/png/fastapi.png" 
                  alt="Social Media FastAPI" 
                  style="width:auto;max-width:100%;" />
           </picture>
@@ -304,14 +395,14 @@
         </div>
       </div>
 
-            <!-- User Project #5: Probit API -->
+      <!-- User Project #7: Probit API -->
       <div class="user-projects">
         <div class="images-right">
           <picture>
             <source type="image/webp" 
                     srcset="./static/img/webp/probit.webp" 
                     sizes="(max-width: 600px) 480px, 800px" />
-            <img src="./static/img/jpg/probit.jpg" 
+            <img src="./static/img/png/probit.png" 
                  alt="ProBit Global API" 
                  style="width:auto;max-width:100%;" />
           </picture>
