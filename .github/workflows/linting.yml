@@ -36,6 +36,8 @@ jobs:
           go mod tidy
           go mod download
           go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.57.2
+          go install github.com/a-h/templ/cmd/templ@latest
+          templ generate
 
       - name: Run golangci-lint
         run: golangci-lint run
