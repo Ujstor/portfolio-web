@@ -39,13 +39,10 @@ jobs:
         with:
           envFile: '.env'
 
-      - name: Debug - Check PUSH_TO_DOCKER value
-        run: echo "PUSH_TO_DOCKER is set to ${{ env.PUSH_TO_DOCKER }}"
-
       - name: Build and push
+        if: ${{ env.PUSH_TO_DOCKER == 'true' }}
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
           tags: ${{ env.DOCKER_HUB_USERNAME }}/${{ env.DOCKER_REPO_NAME }}:${{ env.NEW_TAG }}
-        if: ${{ env.PUSH_TO_DOCKER }} == 'true'
