@@ -1,21 +1,19 @@
 #!/bin/bash
 
-DOCKER_HUB_USERNAME=$1
-DOCKER_REPO_NAME=$2
-VERSION_PART=$3
+eval $(yq e '.docker | to_entries | .[] | "export \(.key)=\(.value)"' config.yml)
 
 DOCKER_IMAGE="$DOCKER_HUB_USERNAME/$DOCKER_REPO_NAME"
 
 TAGS=$(curl -s "https://hub.docker.com/v2/repositories/$DOCKER_IMAGE/tags/?page_size=100" | jq -r '.results[].name')
 
 if [ -z "$TAGS" ]; then
-    DEFAULT_TAG="1.0.0"
+    DEFAULT_TAG="0.0.1"
     NEW_TAG="$DEFAULT_TAG"
 else
     LATEST_TAG=$(echo "$TAGS" | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -n 1)
 
     if [ -z "$LATEST_TAG" ]; then
-        LATEST_TAG="1.0.0"
+        LATEST_TAG="0.0.1"
     fi
 
     IFS='.' read -ra PARTS <<< "$LATEST_TAG"
@@ -35,4 +33,13 @@ else
     fi
 fi
 
-echo $NEW_TAG
+create_env_file() {
+    cat << EOF > .env
+DOCKER_HUB_USERNAME=$DOCKER_HUB_USERNAME
+DOCKER_REPO_NAME=$DOCKER_REPO_NAME
+NEW_TAG=$NEW_TAG
+PUSH_TO_DOCKER=$PUSH_TO_DOCKER
+EOF
+}
+
+create_env_file

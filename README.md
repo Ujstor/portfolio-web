@@ -2,13 +2,6 @@
 
 This static website is built with Go and Templ.
 
-
-## Jenkins Pipeline
-The pipeline is designed to automate the processes of testing, building, and deploying a web application using Docker.
-It creates an image and pushes it to DockerHub. 
-
-![](https://i.imgur.com/llEoE4e.png)
-
 ## Deployment
 Deployment can be achieved through self-hosting service provided by [Collify](https://coolify.io/docs/installation). 
 

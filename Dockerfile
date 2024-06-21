@@ -13,7 +13,7 @@ RUN go install github.com/a-h/templ/cmd/templ@latest
 RUN templ generate
 RUN go build -o main cmd/api/main.go
 
-FROM alpine:3.20.1 as prod
+FROM alpine:3.20.1
 WORKDIR /app
 COPY --from=build /app/main /app/main
 EXPOSE 5000
