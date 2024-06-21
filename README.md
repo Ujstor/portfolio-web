@@ -2,11 +2,29 @@
 
 This static website is built with Go and Templ.
 
+Complete website in singe binary.
+
+## Docker image Workflow
+Variables are defined in config.yml and can be updated upon commit for new image tag:
+
+```bash
+docker:
+  DOCKER_HUB_USERNAME: ujstor 
+  DOCKER_REPO_NAME: portfolio-web-go
+  VERSION_PART: Patch # Patch, Minor, major
+  PUSH_TO_DOCKER: true
+```
+If the image does not exist, the default image tag is 0.0.1 for Patch, 0.1.0 for Minor, 1.0.0 for Major. Semantic versioning is employed upon commit, automatically incrementing the version.
+
+Workflow also requires DockerHub login credentials, username and password configuration in the Action secret:
+
+```bash
+username: ${{ secrets.DOCKERHUB_USERNAME }}
+password: ${{ secrets.DOCKERHUB_TOKEN }}
+```
+
 ## Deployment
 Deployment can be achieved through self-hosting service provided by [Collify](https://coolify.io/docs/installation). 
-
-<br>
-<br>
 
 ![](https://i.imgur.com/pi1WaHy.png)
 

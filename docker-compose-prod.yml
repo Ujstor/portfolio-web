@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   web:
     image: ujstor/portfolio-web-go:1.2.1
