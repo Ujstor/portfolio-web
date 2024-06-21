@@ -1,84 +1,87 @@
 # Portfolio Website
 
-This static website is built using HTML, CSS, and JavaScript and served using a Go or Flask web server. It's designed to showcase your personal or professional projects, skills, and any other information you'd like to share with the world.
+This static website is built with Go and Templ.
 
-The website is containerized using Docker Compose for easy deployment and scaling.
+Complete website in singe binary.
 
-## Docker Compose
-
-Build image and start the Docker containers using Docker Compose:
+## Docker image Workflow
+Variables are defined in config.yml and can be updated upon commit for new image tag:
 
 ```bash
-docker compose up web-prod --build -d
+docker:
+  DOCKER_HUB_USERNAME: ujstor 
+  DOCKER_REPO_NAME: portfolio-web-go
+  VERSION_PART: Patch # Patch, Minor, major
+  PUSH_TO_DOCKER: true
+```
+If the image does not exist, the default image tag is 0.0.1 for Patch, 0.1.0 for Minor, 1.0.0 for Major. Semantic versioning is employed upon commit, automatically incrementing the version.
+
+Workflow also requires DockerHub login credentials, username and password configuration in the Action secret:
+
+```bash
+username: ${{ secrets.DOCKERHUB_USERNAME }}
+password: ${{ secrets.DOCKERHUB_TOKEN }}
 ```
 
-This command will build the Docker image for your website and start the container.
-
-You can now access your portfolio website by navigating to `http://localhost:5000` in your web browser.
-
-
-
-## Jenkins Pipeline
-The pipeline is designed to automate the processes of testing, building, and deploying a web application using Docker.
-It creates an image and pushes it to DockerHub. This simplifies deployment with Docker Compose. Additionally,
-the pipeline is configured to perform these tasks when certain conditions are met, such as specific branch.
-
-![](https://i.imgur.com/llEoE4e.png)
-
-
 ## Deployment
-Application deployment can be achieved through the utilization of either a `Go` or `Flask` server, orchestrated using docker-compose,
-and hosted on the cloud self-hosting service provided by [Collify](https://coolify.io/docs/installation). Please note that the Flask server resides on a distinct branch.
-
-
-<br>
-<br>
+Deployment can be achieved through self-hosting service provided by [Collify](https://coolify.io/docs/installation). 
 
 ![](https://i.imgur.com/pi1WaHy.png)
 
 ## MakeFile
 
-run all make commands with clean tests
 ```bash
-make all build
-```
+all: build docker-build docker-run
 
-build the application
-```bash
-make build
-```
+build:
+	@echo "Building..."
+	@if command -v templ > /dev/null; then \
+			templ generate; \
+	else \
+		read -p "Go's 'templ' is not installed on your machine. Do you want to install it? [Y/n] " choice; \
+		if [ "$$choice" != "n" ] && [ "$$choice" != "N" ]; then \
+			go install github.com/a-h/templ/cmd/templ@latest; \
+			templ generate; \
+		else \
+			echo "You chose not to install templ. Exiting..."; \
+			exit 1; \
+		fi; \
+	fi
+	@go build -o main cmd/api/main.go
 
-build docker image
-```bash
-make docker-build
-```
+docker-build:
+	@docker build -t ujstor/portfolio-web-go --target prod .
 
-run the application
-```bash
-make run
-```
+# Run the application
+run:
+	@go run cmd/api/main.go
 
-run docker image
-```bash
-make docker-run
-```
+docker-run:
+	@docker run -p 5000:5000 ujstor/portfolio-web-go
 
-push image to DockerHub
-```bash
-make push
-```
+# Push app to DockerHub
+push:
+	@docker push ujstor/portfolio-web-go
 
-live reload the application
-```bash
-make watch
-```
+# Clean the binary
+clean:
+	@echo "Cleaning..."
+	@rm -f main
 
-run the test suite
-```bash
-make test
-```
-
-clean up binary from the last build
-```bash
-make clean
+watch:
+	@if command -v air > /dev/null; then \
+	    air; \
+	    echo "Watching...";\
+	else \
+	    read -p "Go's 'air' is not installed on your machine. Do you want to install it? [Y/n] " choice; \
+	    if [ "$$choice" != "n" ] && [ "$$choice" != "N" ]; then \
+	        go install github.com/air-verse/air@latest; \
+	        air; \
+	        echo "Watching...";\
+	    else \
+	        echo "You chose not to install air. Exiting..."; \
+	        exit 1; \
+	    fi; \
+	fi
+.PHONY: all build docker-build run docker-run push clean watch
 ```

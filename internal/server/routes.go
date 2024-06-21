@@ -1,19 +1,21 @@
 package server
 
 import (
-	"github.com/gofiber/fiber/v2"
+	"net/http"
+
+	"github.com/a-h/templ"
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
+	"portfolio-web/cmd/web"
 )
 
-func (s *FiberServer) RegisterFiberRoutes() {
-	s.App.Static("/", "./cmd/web/templates")
+func (s *Server) RegisterRoutes() http.Handler {
+	r := chi.NewRouter()
+	r.Use(middleware.Logger)
 
-	s.App.Static("/static", "./cmd/web/static")
+	fileServer := http.FileServer(http.FS(web.Files))
+	r.Handle("/assets/*", fileServer)
+	r.Get("/", templ.Handler(web.Portfolio()).ServeHTTP)
 
-	// 404 handler for all other routes
-	s.App.Use(func(c *fiber.Ctx) error {
-		if c.Path() != "/" && c.Path() != "/static" {
-			return fiber.ErrNotFound
-		}
-		return c.Next()
-	})
+	return r
 }

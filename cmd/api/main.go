@@ -1,22 +1,16 @@
 package main
 
 import (
-	"fiber/internal/server"
 	"fmt"
-	"os"
-	"strconv"
-
-	_ "github.com/joho/godotenv/autoload"
+	"portfolio-web/internal/server"
 )
 
 func main() {
 
-	server := server.New()
+	server := server.NewServer()
 
-	server.RegisterFiberRoutes()
-	port, _ := strconv.Atoi(os.Getenv("PORT"))
-	err := server.Listen(fmt.Sprintf(":%d", port))
+	err := server.ListenAndServe()
 	if err != nil {
-		panic("cannot start server")
+		panic(fmt.Sprintf("cannot start server: %s", err))
 	}
 }

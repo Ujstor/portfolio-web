@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   web-dev:
     build:
@@ -7,9 +5,7 @@ services:
       dockerfile: Dockerfile
       target: dev
     ports:
-      - ${PORT}:${PORT}
-    environment:
-      - PORT=${PORT}
+      - 5000:5000
     volumes:
       - ./:/app
   
@@ -19,9 +15,7 @@ services:
       dockerfile: Dockerfile
       target: prod
     ports:
-      - ${PORT}:${PORT}
-    environment:
-      - PORT=${PORT}
+      - 5000:5000
 
-# docker-compose up  web-prod --build
-# docker-compose up  web-dev --build
+# docker compose up  web-dev --build
+# docker compose up  web-prod --build

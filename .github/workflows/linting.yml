@@ -1,15 +1,9 @@
-name: Linting
+name: continuous integration
 
 on:
   push:
-    paths:
-      - '**.go'
-      - go.sum
-      - go.mod
-    branches-ignore:
-      - main
   pull_request:
-
+  
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -17,13 +11,13 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Set up Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
-          go-version: '1.22.1'
+          go-version: '1.22.2'
 
       - name: Deps cache
         id: cache-go-deps
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: go-deps-cache
         with:
@@ -33,7 +27,7 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
 
       - if: ${{ steps.cache-go-deps.outputs.cache-hit != 'true' }}
-        name: List the state of node modules
+        name: List the state of go modules
         continue-on-error: true
         run: go mod graph
 
@@ -41,6 +35,9 @@ jobs:
         run: |
           go mod tidy
           go mod download
+          go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.57.2
+          go install github.com/a-h/templ/cmd/templ@latest
+          templ generate
 
       - name: Run golangci-lint
-        uses: golangci/golangci-lint-action@v3.7.0
+        run: golangci-lint run

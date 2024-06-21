@@ -11,15 +11,14 @@ COPY . .
 
 FROM base as dev
 RUN make build
-EXPOSE ${PORT}
+EXPOSE 5000
 CMD [ "sh", "-c", "echo 'y' | make watch" ]
 
 FROM base as build
-RUN go build -o main cmd/api/main.go
+RUN make build
 
-FROM alpine:3.19.0 as prod
+FROM alpine:3.20.1 as prod
 WORKDIR /app
 COPY --from=build /app/main /app/main
-COPY cmd/web cmd/web
-EXPOSE ${PORT}
+EXPOSE 5000
 CMD ["./main"]
