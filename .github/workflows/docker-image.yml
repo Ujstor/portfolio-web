@@ -31,6 +31,7 @@ jobs:
 
       - name: Run docker tag sh and export var from config.yml
         run: |
+          chmod +x ./docker_tag.sh
           ./docker_tag.sh
 
       - name: Export env variabels 
