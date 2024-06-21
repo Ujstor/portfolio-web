@@ -45,3 +45,4 @@ jobs:
           context: .
           push: true
           tags: ${{ env.DOCKER_HUB_USERNAME }}/${{ env.DOCKER_REPO_NAME }}:${{ env.NEW_TAG }}
+          target: prod

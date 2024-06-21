@@ -1,7 +1,21 @@
 services:
-  web:
+  web-dev:
     build:
       context: .
       dockerfile: Dockerfile
+      target: dev
     ports:
       - 5000:5000
+    volumes:
+      - ./:/app
+  
+  web-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: prod
+    ports:
+      - 5000:5000
+
+# docker compose up  web-dev --build
+# docker compose up  web-prod --build
