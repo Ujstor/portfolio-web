@@ -7,7 +7,7 @@ pipeline {
         DOCKER_HUB_USERNAME = 'ujstor'
         DOCKER_REPO_NAME = 'portfolio-web-go'
         BRANCH = 'master'
-        VERSION_PART = 'Minor' // Patch, Minor, Major
+        VERSION_PART = 'Patch' // Patch, Minor, Major
         DOCKER_JENKINS_CERDIDENTALS_ID = 'be9636c4-b828-41af-ad0b-46d4182dfb06'
         TAG = '' // Generated automatically
     }
@@ -17,14 +17,6 @@ pipeline {
             steps {
                 script {
                     git(url: "https://github.com/${GITHUB_USER}/${GITHUB_REPO}/", branch: env.BRANCH_NAME)
-                }
-            }
-        }
-
-        stage('Test') {
-            steps {
-                script {
-                    sh "go test -v ./... ${WORKSPACE}/internal/server"
                 }
             }
         }

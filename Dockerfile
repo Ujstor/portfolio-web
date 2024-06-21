@@ -1,4 +1,4 @@
-FROM golang:1.22-alpine as base
+FROM golang:1.22-alpine as build
 
 RUN apk add --no-cache make
 
@@ -9,17 +9,12 @@ RUN go mod download
 
 COPY . .
 
-FROM base as dev
-RUN make build
-EXPOSE ${PORT}
-CMD [ "sh", "-c", "echo 'y' | make watch" ]
-
-FROM base as build
+RUN go install github.com/a-h/templ/cmd/templ@latest
+RUN templ generate
 RUN go build -o main cmd/api/main.go
 
-FROM alpine:3.19.0 as prod
+FROM alpine:3.20.1 as prod
 WORKDIR /app
 COPY --from=build /app/main /app/main
-COPY cmd/web cmd/web
-EXPOSE ${PORT}
+EXPOSE 5000
 CMD ["./main"]
