@@ -16,6 +16,10 @@ build:
 	fi
 	@go build -o main cmd/api/main.go
 
+build-lambda:
+	@templ generate
+	@GOOS=linux GOARCH=amd64 go build -o bootstrap cmd/api/main.go
+
 docker-build:
 	@docker build -t ujstor/portfolio-web-go --target prod .
 
