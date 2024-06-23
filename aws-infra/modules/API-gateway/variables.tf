@@ -1,9 +1,3 @@
-variable "aws_region" {
-  description = "AWS region"
-  type        = string
-  default     = "us-east-1"
-}
-
 variable "api_gw_conf" {
   description = "API Gateway configuration"
   type = object({

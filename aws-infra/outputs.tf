@@ -3,11 +3,7 @@ output "lambda_arn" {
   value       = module.lambda.lambda_arn
 }
 
-# output "Dynamodb_arn" {
-#   description = "DynamoDB ARN"
-#   value       = module.dynamodb.dynamodb_arn
-# }
-
 output "api_gateway_url" {
-  value = module.api_gateway.api_gateway_url
+  description = "API gateway URL"
+  value       = module.api_gateway.api_gateway_url
 }

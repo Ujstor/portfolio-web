@@ -1,6 +1,10 @@
 module "lambda" {
   source = "./modules/lambda"
 
+  # providers = {
+  #   aws = aws.snadbox
+  # }
+
   lambda_config = {
     work_dir          = "../"
     bin_name          = "bootstrap"
@@ -15,6 +19,10 @@ module "lambda" {
 
 module "api_gateway" {
   source = "./modules/API-gateway"
+
+  # providers = {
+  #   aws = aws.snadbox
+  # }
 
   api_gw_conf = {
     name          = "portfolio-web"
