@@ -1,37 +1,56 @@
 # Portfolio Website
 
-This static website is built with Go and Templ.
+This static website is built with Go and Templ and deployed on AWS Lambda with Terraform.
 
 Complete website in singe binary.
 
-## Docker image Workflow
-Variables are defined in config.yml and can be updated upon commit for new image tag:
-
-```bash
-docker:
-  DOCKER_HUB_USERNAME: ujstor 
-  DOCKER_REPO_NAME: portfolio-web-go
-  VERSION_PART: Patch # Patch, Minor, major
-  PUSH_TO_DOCKER: true
-```
-If the image does not exist, the default image tag is 0.0.1 for Patch, 0.1.0 for Minor, 1.0.0 for Major. Semantic versioning is employed upon commit, automatically incrementing the version.
-
-Workflow also requires DockerHub login credentials, username and password configuration in the Action secret:
-
-```bash
-username: ${{ secrets.DOCKERHUB_USERNAME }}
-password: ${{ secrets.DOCKERHUB_TOKEN }}
-```
-
 ## Deployment
-Deployment can be achieved through self-hosting service provided by [Collify](https://coolify.io/docs/installation). 
 
-![](https://i.imgur.com/pi1WaHy.png)
+First, build the binary for the Lambda function, which will later be zipped and uploaded with Terraform:
+
+```bash
+make build
+```
+
+cd into aws-infra and run terraform apply:
+
+```bash
+cd aws-infra
+terraform init
+terraform apply
+```
+
+output will provide the URL to the website:
+
+```bash
+Outputs:
+
+api_gateway_url = {
+  "value" = "https://dx90b08zwj.execute-api.us-east-1.amazonaws.com"
+}
+lambda_arn = {
+  "invoke_arn" = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:795062932265:function:portfolio-web/invocations"
+  "lambda_arn" = "arn:aws:lambda:us-east-1:795062932265:function:portfolio-web"
+  "lambda_name" = "portfolio-web"
+}
+```
+
+Two main resources are created:
+
+Lambda function and API Gateway
+
+![lambda](public/lambda.png)
+
+Destroy infrastructure:
+
+```bash
+terraform destroy
+```
 
 ## MakeFile
 
 ```bash
-all: build docker-build docker-run
+all: build
 
 build:
 	@echo "Building..."
@@ -47,41 +66,13 @@ build:
 			exit 1; \
 		fi; \
 	fi
-	@go build -o main cmd/api/main.go
+	@GOOS=linux GOARCH=amd64 go build -o bootstrap cmd/api/main.go
 
-docker-build:
-	@docker build -t ujstor/portfolio-web-go --target prod .
-
-# Run the application
-run:
-	@go run cmd/api/main.go
-
-docker-run:
-	@docker run -p 5000:5000 ujstor/portfolio-web-go
-
-# Push app to DockerHub
-push:
-	@docker push ujstor/portfolio-web-go
-
-# Clean the binary
 clean:
 	@echo "Cleaning..."
-	@rm -f main
+	@rm -f bootstrap
 
-watch:
-	@if command -v air > /dev/null; then \
-	    air; \
-	    echo "Watching...";\
-	else \
-	    read -p "Go's 'air' is not installed on your machine. Do you want to install it? [Y/n] " choice; \
-	    if [ "$$choice" != "n" ] && [ "$$choice" != "N" ]; then \
-	        go install github.com/air-verse/air@latest; \
-	        air; \
-	        echo "Watching...";\
-	    else \
-	        echo "You chose not to install air. Exiting..."; \
-	        exit 1; \
-	    fi; \
-	fi
-.PHONY: all build docker-build run docker-run push clean watch
+.PHONY: all build clean
 ```
+
+![web](public/web.png)
