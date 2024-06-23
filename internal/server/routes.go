@@ -16,7 +16,7 @@ func (s *Server) RegisterRoutes() *chi.Mux {
 	r.Use(middleware.Logger)
 
 	fileServer := http.FileServer(http.FS(web.Files))
-	r.Handle("/assets/*", http.StripPrefix("/assets", fileServer))
+	r.Handle("/assets/*", fileServer)
 	r.Get("/", templ.Handler(web.Portfolio()).ServeHTTP)
 
 	return r
