@@ -13,6 +13,10 @@ make build
 ```
 On Cloudflare, create an API key that can write DNS records. Along with the specific Cloudflare zone ID for the domain, import the credentials into the .auto.tfvars file:
 
+```bash
+cloudflare_api_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+cloudflare_zone_id   = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```
 Run terraform commands:
 
 ```bash
