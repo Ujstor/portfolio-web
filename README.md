@@ -1,6 +1,6 @@
 # Portfolio Website
 
-This static website is built with Go and Templ and deployed on AWS Lambda with Terraform.
+This static website is built with Go and Templ, deployed on AWS Lambda with Terraform, and is accessible via a Cloudflare custom domain.
 
 Complete website in singe binary.
 
@@ -11,35 +11,19 @@ First, build the binary for the Lambda function, which will later be zipped and 
 ```bash
 make build
 ```
+On Cloudflare, create an API key that can write DNS records. Along with the specific Cloudflare zone ID for the domain, import the credentials into the .auto.tfvars file:
 
-cd into aws-infra and run terraform apply:
+Run terraform commands:
 
 ```bash
-cd aws-infra
 terraform init
 terraform apply
 ```
+Three main resources are created:
 
-output will provide the URL to the website:
+Lambda function, an API Gateway, a certificate in ACM, and an updated Cloudflare domain entry.
 
-```bash
-Outputs:
-
-api_gateway_url = {
-  "value" = "https://dx90b08zwj.execute-api.us-east-1.amazonaws.com"
-}
-lambda_arn = {
-  "invoke_arn" = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:795062932265:function:portfolio-web/invocations"
-  "lambda_arn" = "arn:aws:lambda:us-east-1:795062932265:function:portfolio-web"
-  "lambda_name" = "portfolio-web"
-}
-```
-
-Two main resources are created:
-
-Lambda function and API Gateway
-
-![lambda](public/lambda.png)
+![lambda](public/lambda-domain.png)
 
 Destroy infrastructure:
 
