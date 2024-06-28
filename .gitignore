@@ -16,3 +16,6 @@ tmp/
 *templ.go
 
 main
+
+.terra*
+.auto.tf*

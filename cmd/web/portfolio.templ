@@ -116,7 +116,7 @@ templ Portfolio() {
 		    />
 		    <img
 		      height="105"
-		      width="105"
+		      width="145"
 		      src="./assets/svg/hetzner.svg"
 		    />
 		  </div>
@@ -160,10 +160,9 @@ templ Portfolio() {
 		    />
 		  </div>
 		  <p style="text-align: justify">
-		    Core maintainer of the Go-Blueprint project: Go Blueprint is a CLI tool that allows users to
-		    spin up a Go project with the corresponding structure. It also offers the option to 
-		    integrate with some of the most popular Go frameworks. Additionally, it implements database
-		    drivers along with Docker Compose file for quick database creation, HTMx templates, GitHubAction worflows and Websockets.
+		    Core maintainer of the Go-Blueprint project: CLI tool that allows users to
+		    spin up a Go project. Integrates popular Go frameworks, supports database drivers along with Docker Compose,
+		    HTMx with templ, Tailwind, GitHubAction worflows and Websockets.
 		  </p>
 		  <a class="project-link" target="_blank" href="https://github.com/Melkeydev/go-blueprint">GitHub</a>
 		  &nbsp;
@@ -189,6 +188,12 @@ templ Portfolio() {
 		  <h3>Personal S3 Storage Infrastructure</h3>
 		  <div>
 		    <img
+		      height="45"
+		      width="45"
+		      src="./assets/svg/minio.svg"
+		    />
+		    &nbsp;
+		    <img
 		      height="62"
 		      width="62"
 		      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg"
@@ -202,59 +207,56 @@ templ Portfolio() {
 		    &nbsp;
 		    <img
 		      height="115"
-		      width="115"
+		      width="125"
 		      src="./assets/svg/hetzner.svg"
 		    />
 		  </div>
 		  <p style="text-align: justify">
 		  Implementing MinIO, a high-performance object storage system compatible with Amazon S3, using Terraform and Ansible for management.
-		  Configured as Multi-Node Multi-Drive (MNMD), this setup ensure robust performance and availability for enterprise applications.
-		  It is fortified with configuration to sustain read operations even in the event of half-node or drive failures.
+		  Configured as Multi-Node Multi-Drive (MNMD).
 		  </p>
 		  <a class="project-link" target="_blank" href="https://github.com/Ujstor/personal-s3-storage-infrastructure">GitHub</a>
 		</div>
 	      </div>
 
-	      <!-- User Project #3: aws-lambda -->
+	      <!-- User Project #3: Static website on Lambda-->
 	      <div class="user-projects">
 		<div class="images-right">
 		  <picture>
 		    <source type="image/webp" 
-			    srcset="./assets/img/webp/lambda.webp" 
+			    srcset="./assets/img/webp/lambda-web.webp" 
 			    sizes="(max-width: 600px) 480px, 800px" />
-		    <img src="./assets/img/png/lambda.png" 
-			 alt="Lambda, DynamoDB & APIgw TF Modules" 
+		    <img src="./assets/img/png/lambda-web.png" 
+			 alt="Coolify instance on Hetzner" 
 			 style="width:auto;max-width:100%;" />
 		  </picture>
 		</div>
 		<div class="contents" style="text-align: center">
-		  <h3>Lambda, DynamoDB & APIgw TF Modules</h3>
+		  <h3>Static website on Lambda</h3>
 		  <div>
 		    <img
 		      height="62"
 		      width="62"
-		      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+		      src="./assets/svg/lambda.svg"
 		    />
 		    &nbsp;
 		    <img
 		      height="62"
 		      width="62"
-		      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg"
+		      src="./assets/svg/apigw.svg"
 		    />
 		    &nbsp;
 		    <img
 		      height="62"
 		      width="62"
-		      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dynamodb/dynamodb-original.svg"
+		      src="./assets/svg/acm.svg"
 		    />
 		  </div>
 		  <p style="text-align: justify">
-		    Terraform modules for creating Lambda functions along with associated AWS infrastructure components
-		    like DynamoDB tables and API Gateway configurations. The repository includes modularized Terraform code
-		    with separate modules for Lambda functions, DynamoDB tables, and API Gateway integrations, facilitating
-		    easy deployment and management of serverless applications. 
+		    Terraform module for setting up and deploying a static website on Lambdan.
+		    Function uses an API Gateway, secured with an ACM certificate and configured with custom domain names via Cloudflare.
 		  </p>
-		  <a class="project-link" target="_blank" href="https://github.com/Ujstor/aws-lambda-dynamoDB-terraform">GitHub</a>
+		  <a class="project-link" target="_blank" href="https://github.com/Ujstor/aws-lambda-static-website">GitHub</a>
 		</div>
 	      </div>
 
@@ -300,9 +302,50 @@ templ Portfolio() {
 		</div>
 	      </div>
 
-	      <!-- User Project #5: Self hosted Coolify -->
+	      <!-- User Project #5: aws-lambda -->
 	      <div class="user-projects">
 		<div class="images-right">
+		  <picture>
+		    <source type="image/webp" 
+			    srcset="./assets/img/webp/lambda.webp" 
+			    sizes="(max-width: 600px) 480px, 800px" />
+		    <img src="./assets/img/png/lambda.png" 
+			 alt="Lambda & DynamoDB TF Modules" 
+			 style="width:auto;max-width:100%;" />
+		  </picture>
+		</div>
+		<div class="contents" style="text-align: center">
+		  <h3>Lambda & DynamoDB TF Modules</h3>
+		  <div>
+		    <img
+		      height="62"
+		      width="62"
+		      src="./assets/svg/lambda.svg"
+		    />
+		    &nbsp;
+		    <img
+		      height="62"
+		      width="62"
+		      src="./assets/svg/apigw.svg"
+		    />
+		    &nbsp;
+		    <img
+		      height="62"
+		      width="62"
+		      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dynamodb/dynamodb-original.svg"
+		    />
+		  </div>
+		  <p style="text-align: justify">
+		    Terraform modules for creating Lambda functions along with associated AWS infrastructure components
+		    like DynamoDB tables and API Gateway configurations. 
+		  </p>
+		  <a class="project-link" target="_blank" href="https://github.com/Ujstor/aws-lambda-dynamoDB-terraform">GitHub</a>
+		</div>
+	      </div>
+	
+	      <!-- User Project #6: Self hosted Coolify -->
+	      <div class="user-projects">
+		<div class="images-left">
 		  <picture>
 		    <source type="image/webp" 
 			    srcset="./assets/img/webp/coolify.webp" 
@@ -312,7 +355,7 @@ templ Portfolio() {
 			 style="width:auto;max-width:100%;" />
 		  </picture>
 		</div>
-		<div class="contents" style="text-align: center">
+		<div class="contents-right" style="text-align: center">
 		  <h3>Coolify instance on Hetzner</h3>
 		  <div>
 		    <img
@@ -323,15 +366,13 @@ templ Portfolio() {
 		    &nbsp;
 		    <img
 		      height="115"
-		      width="115"
+		      width="125"
 		      src="./assets/svg/hetzner.svg"
 		    />
 		  </div>
 		  <p style="text-align: justify">
-		    Deploys Coolify on Hetzner Cloud using the Terraform. Coolify is an all-in one PaaS that helps you to self-host your own applications,
-		    databases or services without managing your servers, also known as an open-source & self-hostable
-		    Heroku / Netlify / Vercel alternative.
-		  </p>
+		    Deploys Coolify on Hetzner Cloud using Terraform. Coolify is an all-in one PaaS that helps you to self-host your own applications.
+		    </p>
 		  <a class="project-link" target="_blank" href="https://github.com/Ujstor/coolify-hetzner-terraform">GitHub</a>
 		  &nbsp;
 		  <a class="project-link" target="_blank" href="https://coolify.io/docs/">Docs</a>
