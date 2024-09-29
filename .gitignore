@@ -19,3 +19,8 @@ main
 
 .terra*
 .auto.tf*
+terraform.tfstate
+terraform.tfstate.backup
+
+bootstrap
+function.zip

@@ -50,4 +50,5 @@ watch:
 	        exit 1; \
 	    fi; \
 	fi
+
 .PHONY: all build docker-build run docker-run push clean watch
