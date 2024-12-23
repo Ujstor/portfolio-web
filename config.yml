@@ -1,5 +1,6 @@
 docker:
-  DOCKER_HUB_USERNAME: ujstor
-  DOCKER_REPO_NAME: portfolio-web-go
-  VERSION_PART: Patch # Patch, Minor, major
-  PUSH_TO_DOCKER: true
+  HARBOR_URL: harbor.k3s0.ujstor.com
+  HARBOR_PROJECT: docker
+  HARBOR_REPO: portfolio
+  VERSION_PART: Major # Patch, Minor, Major
+  PUSH_TO_HARBOR: true
