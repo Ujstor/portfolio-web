@@ -1,5 +1,5 @@
 docker:
-  DOCKER_HUB_USERNAME: ujstor 
+  DOCKER_HUB_USERNAME: ujstor
   DOCKER_REPO_NAME: portfolio-web-go
   VERSION_PART: Patch # Patch, Minor, major
   PUSH_TO_DOCKER: true

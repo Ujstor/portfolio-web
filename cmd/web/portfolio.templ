@@ -6,7 +6,7 @@ templ Portfolio() {
 	      <div class="header">
 		<h1>
 		  <span class="site-title">ALEKSANDAR STIPAN</span>
-		  <span class="site-description">Backend Coder • Automation Enthusiast •  CI/CD Fanatic</span>
+		  <span class="site-description">DevOps Engineer• Automation Enthusiast •  CI/CD Fanatic</span>
 		</h1>
 		<div class="header-icons">
 		  <a aria-label="My LinkedIn Profile" target="_blank" href="https://www.linkedin.com/in/aleksandar-s-00a5732a/">
@@ -34,9 +34,9 @@ templ Portfolio() {
 	    <section id="about">
 	      <!-- User Introduction-->
 	      <div class="user-details">
-		<h1>My Story</h1>
+		<h1>The DevOps Forge</h1>
 		<p>
-		  As a self-taught programmer, I am focused on backend development, CI/CD pipelines and automation.
+		  My primary interests revolve around DevOps tools and CI/CD practices.
 		  I'm excited to apply my analytical mindset to projects requiring technical expertise and creative problem-solving.
 		  I remain open to opportunities for growth, collaboration and addressing
 		  real-world challenges with my skill set.
@@ -93,6 +93,11 @@ templ Portfolio() {
 		      height="70"
 		      width="70"
 		      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg"
+		    />
+		    <img
+		      height="70"
+		      width="70"
+		      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/k3s/k3s-original.svg"
 		    />
 		    <img
 		      height="70"
@@ -182,54 +187,127 @@ templ Portfolio() {
 		</div>
 	      </div>
 
-	      <!-- User Project #2: personal-s3-storage-infrastructure  -->
+	      <!-- User Project #2: k3s-single-node-multi-cluster  -->
 	      <div class="user-projects">
 		<div class="images-left">
 		  <picture>
 		    <source type="image/webp" 
-			    srcset="./assets/img/webp/s3-infra.webp" 
+			    srcset="./assets/img/webp/k3s_cluster.webp" 
 			    sizes="(max-width: 600px) 480px, 800px" />
-		    <img src="./assets/img/png/s3-infra.png" 
-			 alt="personal-s3-storage-infrastructure" 
+		    <img src="./assets/img/png/k3s_cluster.png" 
+			 alt="k3s-single-node-multi-cluster" 
 			 style="width:auto;max-width:100%;" />
 		  </picture>
 		</div>
 		<div class="contents-right" style="text-align: center">
-		  <h3>Personal S3 Storage Infrastructure</h3>
+		  <h3>K3s Single Node Multi Cluster IaC</h3>
 		  <div>
 		    <img
-		      height="45"
-		      width="45"
-		      src="./assets/svg/minio.svg"
+		      height="62"
+		      width="62"
+		      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/k3s/k3s-original.svg"
 		    />
 		    &nbsp;
 		    <img
 		      height="62"
 		      width="62"
-		      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg"
+		      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/argocd/argocd-original.svg"
 		    />
 		    &nbsp;
 		    <img
 		      height="62"
 		      width="62"
-		      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg"
-		    />
-		    &nbsp;
-		    <img
-		      height="115"
-		      width="125"
-		      src="./assets/svg/hetzner.svg"
+		      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/helm/helm-original.svg"
 		    />
 		  </div>
 		  <p style="text-align: justify">
-		  Implementing MinIO, a high-performance object storage system compatible with Amazon S3, using Terraform and Ansible for management.
-		  Configured as Multi-Node Multi-Drive (MNMD).
+		   Minimal k3s single node deployment on Hetzner Cloud with Terraform and Ansible as multi cluster configuration managed with ArgoCD.
 		  </p>
-		  <a class="project-link" target="_blank" href="https://github.com/Ujstor/personal-s3-storage-infrastructure">GitHub</a>
+		  <a class="project-link" target="_blank" href="https://github.com/Ujstor/k3s-single-node-multi-cluster-iac">GitHub</a>
+		  &nbsp;
+		  <a class="project-link" target="_blank" href="https://ujstor.github.io/k3s-single-node-multi-cluster-iac/">Docs</a>
 		</div>
 	      </div>
 
-	      <!-- User Project #3: Static website on Lambda-->
+	      <!-- User Project #3: Helm Chart Collection -->
+	      <div class="user-projects">
+		<div class="images-right">
+		  <picture>
+		    <source type="image/webp" 
+			    srcset="./assets/img/webp/helm_charts.webp" 
+			    sizes="(max-width: 600px) 480px, 800px" />
+		    <img src="./assets/img/png/helm_charts.png" 
+			 alt="Helm Chart Collection"
+			 style="width:auto;max-width:100%;" />
+		  </picture>
+		</div>
+		<div class="contents" style="text-align: center">
+		  <h3>Helm Chart Collection</h3>
+		  <div>
+		    <img
+		      height="62"
+		      width="62"
+		      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/helm/helm-original.svg"
+		    />
+		    &nbsp;
+		    <img
+		      height="62"
+		      width="62"
+		      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+		    />
+		  </div>
+		  <p style="text-align: justify">
+		    A comprehensive collection of production-ready Helm charts that simplifies Kubernetes configuration, featuring essential infrastructure components including ArgoCD, Cilium, CertManager, PostgreSQL, MinIOe, Prometheus-Grafana, Rook-Ceph for storage, MetalLB g, External Secret Operator, GitLab, Harbor, all pre-configured for optimal deployment.
+		  </p>
+		  <a class="project-link" target="_blank" href="https://github.com/Ujstor/helm-charts-system">Helm Charts System</a>
+		  &nbsp;
+		  <a class="project-link" target="_blank" href="https://github.com/Ujstor/helm-charts-apps">Helm Charts Apps</a>
+		</div>
+	      </div>
+
+	      <!-- User Project #4: Argo-CD -->
+	      <div class="user-projects">
+		<div class="images-left">
+		  <picture>
+		    <source type="image/webp" 
+			    srcset="./assets/img/webp/argo.webp" 
+			    sizes="(max-width: 600px) 480px, 800px" />
+		    <img src="./assets/img/png/argo.png" 
+			 alt="ArgoCD pipline" 
+			 style="width:auto;max-width:100%;" />
+		  </picture>
+		</div>
+		<div class="contents-right" style="text-align: center">
+		  <h3>ArgoCD GitHub Action pipeline</h3>
+		  <div>
+		    <img
+		      height="62"
+		      width="62"
+		      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/argocd/argocd-original.svg"
+		    />
+		    &nbsp;
+		    <img
+		      height="62"
+		      width="62"
+		      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg"
+		    />
+		    &nbsp;
+		    <img
+		      height="62"
+		      width="62"
+		      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg"
+		    />
+		  </div>
+		  <p style="text-align: justify">
+		    GitHub Actions workflow that integrates with DockerHub and ArgoCD, enabling streamlined CI/CD pipelines.
+		    This setup utilizes semantic versioning for Docker images and automatically updates Helm charts in
+		    another repository upon successful commits.
+		  </p>
+		  <a class="project-link" target="_blank" href="https://github.com/Ujstor/argoCD-pipeline">GitHub</a>
+		</div>
+	      </div>
+
+	      <!-- User Project #5: Static website on Lambda-->
 	      <div class="user-projects">
 		<div class="images-right">
 		  <picture>
@@ -270,67 +348,59 @@ templ Portfolio() {
 		</div>
 	      </div>
 
-	      <!-- User Project #4: Argo-CD -->
+	      <!-- User Project #6: Terraform Hetzner Modules -->
 	      <div class="user-projects">
 		<div class="images-left">
 		  <picture>
 		    <source type="image/webp" 
-			    srcset="./assets/img/webp/argo.webp" 
+			    srcset="./assets/img/webp/terraform_modules.webp"
 			    sizes="(max-width: 600px) 480px, 800px" />
-		    <img src="./assets/img/png/argo.png" 
-			 alt="ArgoCD pipline" 
+		    <img src="./assets/img/png/terraform_modules.png"
+			 alt="Terraform Hetzner Modules"
 			 style="width:auto;max-width:100%;" />
 		  </picture>
 		</div>
 		<div class="contents-right" style="text-align: center">
-		  <h3>ArgoCD GitHub Action pipeline</h3>
+		  <h3>Terraform Hetzner Modules</h3>
 		  <div>
 		    <img
 		      height="62"
 		      width="62"
-		      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/argocd/argocd-original.svg"
-		    />
-		    &nbsp;
-		    <img
-		      height="62"
-		      width="62"
-		      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg"
-		    />
-		    &nbsp;
-		    <img
-		      height="62"
-		      width="62"
-		      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg"
+		      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg"
 		    />
 		  </div>
 		  <p style="text-align: justify">
-		    GitHub Actions workflow that integrates with DockerHub and ArgoCD, enabling streamlined CI/CD pipelines.
-		    This setup utilizes semantic versioning for Docker images and automatically updates Helm charts in 
-		    another repository upon successful commits. 
+		   A collection of Terraform modules that simplify infrastructure provisioning on Hetzner Cloud, featuring easy-to-use configurations for compute resources (VM instances, clusters), networking (VPC, firewalls, load balancers), storage management, and Cloudflare DNS integration.
 		  </p>
-		  <a class="project-link" target="_blank" href="https://github.com/Ujstor/argoCD-pipeline">GitHub</a>
+		  <a class="project-link" target="_blank" href="https://github.com/Ujstor/terraform-hetzner-modules">GitHub</a>
 		</div>
 	      </div>
 
-	      <!-- User Project #5: Self hosted Coolify -->
+	      <!-- User Project #7: self-hosting-infrastructure-cluster -->
 	      <div class="user-projects">
 		<div class="images-right">
 		  <picture>
 		    <source type="image/webp" 
 			    srcset="./assets/img/webp/coolify.webp" 
 			    sizes="(max-width: 600px) 480px, 800px" />
-		    <img src="./assets/img/png/coolify.png" 
-			 alt="Coolify instance on Hetzner" 
+		    <img src="./assets/img/png/coolify.png"
+			 alt="elf Hosting Infrastructure Cluster"
 			 style="width:auto;max-width:100%;" />
 		  </picture>
 		</div>
 		<div class="contents" style="text-align: center">
-		  <h3>Coolify instance on Hetzner</h3>
+		  <h3>Self Hosting Infrastructure Cluster</h3>
 		  <div>
 		    <img
 		      height="62"
 		      width="62"
 		      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg"
+		    />
+		    &nbsp;
+		    <img
+		      height="62"
+		      width="62"
+		      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ansible/ansible-original.svg"
 		    />
 		    &nbsp;
 		    <img
@@ -340,11 +410,13 @@ templ Portfolio() {
 		    />
 		  </div>
 		  <p style="text-align: justify">
-		    Deploys Coolify on Hetzner Cloud using Terraform. Coolify is an all-in one PaaS that helps you to self-host your own applications.
+		    Infra for utilizing Hetzner low-cost VPS and Docker containers, wrapped in Coolify as an all-in-one PaaS, to self-host your own applications, databases, or services.
 		    </p>
-		  <a class="project-link" target="_blank" href="https://github.com/Ujstor/coolify-hetzner-terraform">GitHub</a>
+		  <a class="project-link" target="_blank" href="https://github.com/Ujstor/self-hosting-infrastructure-cluster">GitHub</a>
 		  &nbsp;
-		  <a class="project-link" target="_blank" href="https://coolify.io/docs/">Docs</a>
+		  <a class="project-link" target="_blank" href="https://ujstor.github.io/self-hosting-infrastructure-cluster//">Docs</a>
+		  &nbsp;
+		  <a class="project-link" target="_blank" href="https://coolify.io/docs/">Coolify Docs</a>
 		</div>
 	      </div>
 	    </section> 
