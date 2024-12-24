@@ -2,8 +2,6 @@
 
 This repository contains the code and instructions for creating a portfolio website using Flask and Docker. With this setup, you can easily run your portfolio website in a Docker container, making it easy to deploy and manage.
 
-![](https://i.imgur.com/pi1WaHy.png)
-
 # Getting Started
 
 1. Clone git repo
