@@ -26,8 +26,6 @@ password: ${{ secrets.DOCKERHUB_TOKEN }}
 ## Deployment
 Deployment can be achieved through self-hosting service provided by [Collify](https://coolify.io/docs/installation). 
 
-![](https://i.imgur.com/pi1WaHy.png)
-
 ## MakeFile
 
 ```bash

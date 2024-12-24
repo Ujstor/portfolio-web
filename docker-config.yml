@@ -3,4 +3,4 @@ docker:
   HARBOR_PROJECT: docker
   HARBOR_REPO: portfolio
   VERSION_PART: Major # Patch, Minor, Major
-  PUSH_TO_HARBOR: true
+  PUSH_TO_HARBOR: false
