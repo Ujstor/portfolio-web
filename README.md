@@ -62,5 +62,3 @@ clean:
 
 .PHONY: all build clean
 ```
-
-![web](public/web.png)
