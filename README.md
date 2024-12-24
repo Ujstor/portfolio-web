@@ -30,12 +30,6 @@ the pipeline is configured to perform these tasks when certain conditions are me
 Application deployment can be achieved through the utilization of either a `Go` or `Flask` server, orchestrated using docker-compose,
 and hosted on the cloud self-hosting service provided by [Collify](https://coolify.io/docs/installation). Please note that the Flask server resides on a distinct branch.
 
-
-<br>
-<br>
-
-![](https://i.imgur.com/pi1WaHy.png)
-
 ## MakeFile
 
 run all make commands with clean tests
